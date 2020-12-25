@@ -12,6 +12,8 @@ const express = require('express'),
     FacebookStrategy = require('passport-facebook');
      config = require('./config.js'), //config file contains all tokens and other private info
     funct = require('./functions.js'); //funct file contains our helper functions for our Passport and database work
+    mongoose = require("mongoose");
+
 
 const app = express();
 // index.js/
@@ -150,6 +152,9 @@ app.get('/logout', function (req, res) {
     res.redirect('/');
     req.session.notice = "You have successfully been logged out " + name + "!";
 });
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/passport");
+
 
 const port = process.env.PORT || 5000; //select your port or let it pull from your .env file
 app.listen(port);
