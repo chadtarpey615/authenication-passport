@@ -1,3 +1,3 @@
 module.exports = {
-    "mongodbHost" : "YOUR.MONGODB.HOST" // you database name here
+    "mongodbHost" : "passport" // you database name here
   };
